@@ -92,12 +92,8 @@ describe('check in class team methods', () => {
     ];
     const players = new Team();
     players.add(obj1);
-    players.toArray();
-    expect([
-      {
-        health: 100, level: 1, name: 'Jhon', type: 'Swordsman',
-      },
-    ]).toEqual(result);
+    const receiver = players.toArray();
+    expect(receiver).toEqual(result);
   });
 });
 describe('check in class errorRepo methods', () => {
