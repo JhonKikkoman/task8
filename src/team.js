@@ -5,7 +5,7 @@ export default class Team {
 
   add(player) {
     if (this.members.has(player)) {
-      throw new Error(`can not add already exist ${player}`);
+      throw new Error(`can not add already exist ${player.name}`);
     }
     this.members.add(player);
   }
@@ -25,7 +25,3 @@ export default class Team {
     return [...this.members];
   }
 }
-
-// const team = new Team();
-// team.add('joe')
-// console.log(team.members)

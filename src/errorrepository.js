@@ -10,7 +10,3 @@ export default class ErrorRepository {
     return this.errorRepo.get(code);
   }
 }
-// const repo = new ErrorRepository();
-// repo.errorRepo.set(1, 'Login Error');
-// repo.errorRepo.set(2, 'User name Error');
-// repo.errorRepo.set(3, 'Skill is locked');
