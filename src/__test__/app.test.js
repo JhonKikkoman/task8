@@ -4,18 +4,18 @@ import ErrorRepo from '../errorrepository';
 describe('check in class team methods', () => {
   test('method add', () => {
     const team = new Team();
-    const result = {
-      health: 100,
-      level: 1,
-      name: 'Jhon',
-      type: 'Swordsman',
-    };
+    const result = new Map([
+      ['Jhon', {
+        health: 100,
+        level: 1,
+        name: 'Jhon',
+        type: 'Swordsman',
+      }],
+    ]);
     team.add({
       health: 100, level: 1, name: 'Jhon', type: 'Swordsman',
     });
-    expect(team.members = {
-      health: 100, level: 1, name: 'Jhon', type: 'Swordsman',
-    }).toEqual(result);
+    expect(team.members).toEqual(result);
   });
   test('method add throw Error', () => {
     const obj = {
@@ -40,13 +40,14 @@ describe('check in class team methods', () => {
       name: 'Kira',
       type: 'Undead',
     };
-    const result = new Set([
+    const result = new Map([['Jhon',
       {
         health: 100, level: 1, name: 'Jhon', type: 'Swordsman',
-      },
+      }],
+    ['Kira',
       {
         health: 60, level: 1, name: 'Kira', type: 'Undead',
-      },
+      }],
     ]);
     const players = new Team();
     players.addAll(obj1, obj2);
@@ -65,13 +66,14 @@ describe('check in class team methods', () => {
       name: 'Kira',
       type: 'Undead',
     };
-    const result = new Set([
+    const result = new Map([['Jhon',
       {
         health: 100, level: 1, name: 'Jhon', type: 'Swordsman',
-      },
+      }],
+    ['Kira',
       {
         health: 60, level: 1, name: 'Kira', type: 'Undead',
-      },
+      }],
     ]);
     const players = new Team();
     players.addAll(obj1, obj2);

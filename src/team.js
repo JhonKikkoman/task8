@@ -1,27 +1,26 @@
 export default class Team {
   constructor() {
-    this.members = new Set();
+    this.members = new Map();
   }
 
   add(player) {
-    if (this.members.has(player)) {
-      throw new Error(`can not add already exist ${player.name}`);
-    }
-    this.members.add(player);
+    this.members.forEach((e) => {
+      if (e.name === player.name) {
+        throw new Error(`can not add already exist ${player.name}`);
+      }
+    });
+    this.members.set(player.name, player);
   }
 
   addAll(...players) {
     players.forEach((e) => {
-      this.members.add(e);
-      for (const item of this.members) {
-        if (item === e) {
-          return;
-        }
+      if (!(this.members.has(e.name))) {
+        this.members.set(e.name, e);
       }
     });
   }
 
   toArray() {
-    return [...this.members];
+    return Array.from(this.members.values());
   }
 }
